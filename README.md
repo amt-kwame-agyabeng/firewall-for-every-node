@@ -52,7 +52,7 @@ multipass list
 
 here.
 
-**[INSERT SCREENSHOT 1 HERE]**
+![](screenshots/Ubuntu%20Server%20nodes%20provisioned%20using%20Multipass.png)
 
 ---
 
@@ -96,7 +96,7 @@ UFW was initially inactive while the configuration was prepared.
 
 Place the screenshot showing the default UFW policies and initial status here.
 
-**[INSERT SCREENSHOT 2 HERE]**
+![](screenshots/UFW%20default%20policies%20configured%20on%20all%20Ubuntu%20nodes.png)
 
 ---
 
@@ -128,7 +128,7 @@ ufw allow from 10.192.37.0/24 to any port 65123 proto tcp
 
 Place the screenshot showing the configured SSH firewall rule here.
 
-**[INSERT SCREENSHOT 3 HERE]**
+![](screenshots/Baseline%20SSH%20and%20UFW%20configuration%20before%20hardening.png)
 
 ---
 
@@ -183,7 +183,7 @@ passwordauthentication no
 
 Place the screenshot showing `/etc/ssh/sshd_config.d/99-hardening.conf` here.
 
-**[INSERT SCREENSHOT 4 HERE]**
+!![](screenshots/SSH%20hardening%20configuration%20validated%20on%20all%20Ubuntu%20nodes.png)
 
 ### Screenshot 5 — SSH Listening on Custom Port
 
@@ -195,7 +195,7 @@ sudo ss -lntp | grep ssh
 
 The output should show SSH listening on port `65123` and not on port `22`.
 
-**[INSERT SCREENSHOT 5 HERE]**
+!![INSERT SCREENSHOT 5 HERE](screenshots/SSH%20hardening%20and%20custom%20port%20validation%20on%20node1.png)**
 
 ---
 
@@ -298,7 +298,7 @@ To                         Action      From
 
 Place the screenshot showing the final UFW status on one of the nodes here.
 
-**[INSERT SCREENSHOT 6 HERE]**
+![INSERT SCREENSHOT 6 HERE](screenshots/UFW%20enabled%20with%20default-deny%20incoming%20policy%20and%20restricted%20SSH%20access.png)**
 
 ---
 
@@ -329,7 +329,7 @@ Security configuration:
 
 Place the screenshot showing node1 SSH hardening and UFW validation here.
 
-**[INSERT SCREENSHOT 7 HERE]**
+![INSERT SCREENSHOT 7 HERE](screenshots/Node2%20SSH%20port%20hardening%20validation%20—%20port%2022%20blocked%20and%20port%2065123%20accessible%20using%20key-based%20authentication.png)
 
 ### node2
 
@@ -361,7 +361,7 @@ sudo ufw status verbose
 
 on node3 here.
 
-**[INSERT SCREENSHOT 8 HERE]**
+![](/screenshots/Node3%20UFW%20enabled%20with%20default-deny%20incoming%20policy%20and%20restricted%20SSH%20access.png)
 
 ---
 
@@ -403,7 +403,7 @@ sudo apt update
 
 while UFW is active here.
 
-**[INSERT SCREENSHOT 9 HERE]**
+![INSERT SCREENSHOT 9 HERE](/screenshots/Node1%20firewall,%20SSH%20hardening,%20and%20outbound%20package%20connectivity%20validation.png)
 
 ---
 
@@ -431,13 +431,7 @@ sudo iptables -A FORWARD \
 
 After configuring host-side NAT and forwarding, outbound Internet and package repository access worked with UFW enabled.
 
-### Screenshot 10 — Host-Side NAT/Forwarding
 
-Place the screenshot showing the NAT/forwarding configuration here.
-
-**[INSERT SCREENSHOT 10 HERE]**
-
----
 
 ## 13. Final SSH Port Validation
 
@@ -471,7 +465,7 @@ All three connections succeeded.
 
 Place the screenshot containing the combined `nc` tests here.
 
-**[INSERT SCREENSHOT 11 HERE]**
+![INSERT SCREENSHOT 11 HERE](screenshots/Final%20SSH%20firewall%20validation%20across%20all%20three%20nodes.png)
 
 Expected result:
 
@@ -584,81 +578,9 @@ nc -vz 10.192.37.14 65123
 
 ---
 
-## 17. Screenshots Checklist
 
-Insert the screenshots at the locations marked above.
 
-| Figure | Screenshot |
-|---|---|
-| Figure 1 | Multipass lab environment |
-| Figure 2 | Initial UFW configuration |
-| Figure 3 | UFW SSH rule |
-| Figure 4 | SSH hardening configuration |
-| Figure 5 | SSH listening on port 65123 |
-| Figure 6 | UFW enabled |
-| Figure 7 | node1 SSH and firewall validation |
-| Figure 8 | node3 UFW validation |
-| Figure 9 | Successful `apt update` |
-| Figure 10 | Host-side NAT/forwarding |
-| Figure 11 | Port 22 blocked / 65123 accessible |
-| Figure 12 | Key-based SSH validation |
-
-### Recommended screenshot placement
-
-For the cleanest GitHub README presentation:
-
-```text
-README.md
-│
-├── Screenshot 1 → after Lab Environment
-├── Screenshot 2 → after Initial UFW Configuration
-├── Screenshot 3 → after SSH Firewall Rule
-├── Screenshot 4 → after SSH Hardening
-├── Screenshot 5 → after SSH Listening Port
-├── Screenshot 6 → after Enable UFW
-├── Screenshot 7 → after node1 validation
-├── Screenshot 8 → after node3 validation
-├── Screenshot 9 → after apt update
-├── Screenshot 10 → after NAT/forwarding
-├── Screenshot 11 → after final SSH port validation
-└── Screenshot 12 → after key-based authentication
-```
-
-When the screenshots are added to the repository, replace each placeholder such as:
-
-```text
-**[INSERT SCREENSHOT 1 HERE]**
-```
-
-with Markdown image syntax, for example:
-
-```markdown
-![Multipass Lab Environment](screenshots/01-multipass-list.png)
-```
-
-A recommended repository structure is:
-
-```text
-firewall-for-every-node/
-├── README.md
-└── screenshots/
-    ├── 01-multipass-list.png
-    ├── 02-ufw-initial.png
-    ├── 03-ufw-ssh-rule.png
-    ├── 04-ssh-hardening.png
-    ├── 05-ssh-port.png
-    ├── 06-ufw-enabled.png
-    ├── 07-node1-validation.png
-    ├── 08-node3-validation.png
-    ├── 09-apt-update.png
-    ├── 10-nat-forwarding.png
-    ├── 11-ssh-port-tests.png
-    └── 12-key-authentication.png
-```
-
----
-
-## 18. Conclusion
+## 17. Conclusion
 
 The firewall and SSH hardening requirements were successfully implemented across all three Ubuntu nodes.
 
